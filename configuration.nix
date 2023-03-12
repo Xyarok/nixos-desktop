@@ -87,6 +87,7 @@
     ];
   };
 
+  # Set the system version.  I use unstable.
   system.stateVersion = "23.05";
 
 }
