@@ -1,1 +1,1 @@
-# My NixOS dotfiles... it is a constant work in progress.  (NixOS unstable)
+# My NixOS dotfiles... there are, unfinished to say the least.
