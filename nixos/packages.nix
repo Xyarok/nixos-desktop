@@ -74,6 +74,7 @@
     killall
     ranger
     wget
+    zsh
 
     # Video Creation
     shotcut
