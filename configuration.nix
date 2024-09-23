@@ -10,22 +10,10 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
-  boot = { 
-    # stay up to date on kernel
-    bootspec.enable = true;
-
-    loader = {
-      # disable boot editor
-      systemd-boot.editor = false;
-      # use systemd boot with efi
-      systemd-boot.enable = true;
-      efi = {
-        efiSysMountPoint = "/boot";
-        canTouchEfiVariables = true;
-      };
-    };
-  };
+  # bootloader
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "goldenTerra"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
