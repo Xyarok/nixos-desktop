@@ -46,13 +46,6 @@
       };
     };
 
-    # Enable Steam
-    steam = {
-     enable = true;
-     remotePlay.openFirewall = true;
-     dedicatedServer.openFirewall = true;
-    };
-
     # Enable Neovim alias'
     neovim = {
      viAlias = true;
@@ -68,6 +61,7 @@
 
     # Base Applications
     firefox
+    floorp
     gimp
     onlyoffice-bin_7_5
     vlc
@@ -76,41 +70,33 @@
     # Terminal and Terminal Applications
     kitty
     fdupes
-    freshfetch
     htop
     killall
     ranger
     wget
 
     # Video Creation
-    kdenlive
+    shotcut
     obs-studio
 
     # Development
     vscodium
-    godot_4
 
     # Privacy Applications
     tor-browser-bundle-bin
-    protonvpn-gui
-    mullvad-browser
-
-    # Gaming
-    itch
 
     # 3/2D Art
     krita
-    pixelorama
     blender
 
     # Notes
     lorien
+    obsidian
 
     # Windows Compatability
     winetricks
     wineWowPackages.wayland
     wine-staging
-    lutris
 
     # Github
     git
