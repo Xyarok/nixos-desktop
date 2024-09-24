@@ -111,6 +111,7 @@
     geary
     gnome-contacts
     gnome-maps
+    gnome-weather
   ]);
 
   # applications
@@ -119,10 +120,14 @@
     gimp
     krita
 
+    # git
+    gitFull
+
     # terminal
     htop
     killall
     kitty
+    vim
     wget
     zsh
 
@@ -134,7 +139,6 @@
     tor-browser
 
     # video
-    lightworks
     shotcut
     vlc
 
