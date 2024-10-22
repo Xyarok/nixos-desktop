@@ -58,6 +58,8 @@
     };
   };
 
+  programs.zsh.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -82,14 +84,19 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.xyarok = {
-    isNormalUser = true;
-    description = "Xyarok";
-    extraGroups = [ "networkmanager" "wheel" ];
-    # Personal packages
-    packages = with pkgs; [
-      
-    ];
+  users = {
+    # set zsh for all users
+    defaultUserShell = pkgs.zsh;
+    # user
+    users.xyarok = {
+      isNormalUser = true;
+      description = "Xyarok";
+      extraGroups = [ "networkmanager" "wheel" ];
+      # Personal packages
+      packages = with pkgs; [
+     	# currently empty 
+      ];
+    };
   };
 
   # Allow unfree packages
@@ -118,7 +125,10 @@
   environment.systemPackages = with pkgs; [
     # art/photo
     gimp
-    krita
+
+    # development
+    python3Full
+    vscodium
 
     # git
     gitFull
@@ -136,6 +146,7 @@
     obsidian
 
     # privacy
+    protonvpn-gui
     tor-browser
 
     # video
