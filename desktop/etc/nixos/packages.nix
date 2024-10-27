@@ -1,7 +1,9 @@
 # A list of all packages used on my system
+{ pkgs, ... };
+
 {
   # Allow unfree packages
-  inixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Enable Flatpaks
   services.flatpak.enable = true;
