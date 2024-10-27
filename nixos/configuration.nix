@@ -130,6 +130,9 @@
     python3Full
     vscodium
 
+    # fonts
+    corefonts
+
     # git
     gitFull
 
