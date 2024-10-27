@@ -12,9 +12,11 @@
     ];
 
   # bootloader
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+    useOSProber = true;
+  };
 
   networking.hostName = "goldenTerra"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -97,6 +99,22 @@
       ];
     };
   };
+
+  environment.gnome.excludePackages = (with pkgs; [
+    # packages that are pkgs
+    gnome-connections
+    gnome-console
+    gnome-text-editor
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    # packages that are pkgs.gnome
+    epiphany
+    evince
+    geary
+    gnome-contacts
+    gnome-maps
+    gnome-weather
+  ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
