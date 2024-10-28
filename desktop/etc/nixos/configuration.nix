@@ -12,10 +12,9 @@
     ];
 
   # bootloader
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda";
-    useOSProber = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
   networking.hostName = "goldenTerra"; # Define your hostname.
@@ -44,21 +43,6 @@
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-
-    # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
   };
 
   # Enable CUPS to print documents.
@@ -99,22 +83,6 @@
       ];
     };
   };
-
-  environment.gnome.excludePackages = (with pkgs; [
-    # packages that are pkgs
-    gnome-connections
-    gnome-console
-    gnome-text-editor
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    # packages that are pkgs.gnome
-    epiphany
-    evince
-    geary
-    gnome-contacts
-    gnome-maps
-    gnome-weather
-  ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
