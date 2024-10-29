@@ -6,15 +6,25 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # hardware
       ./hardware-configuration.nix
+
+      # general packages
       ./packages.nix
+
+      # blue/red
+      ./blue-red.nix
+
+      # desktop settings
       ./desktop.nix
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   networking.hostName = "blueTerra"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -67,13 +77,18 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.xyarok = {
-    isNormalUser = true;
-    description = "Xyarok";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+  users = {
+    # set zsh for all users
+    defaultUserShell = pkgs.zsh;
+    # computer users
+    users.xyarok = {
+      isNormalUser = true;
+      description = "Xyarok";
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [
+      #  literally empty
+      ];
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
