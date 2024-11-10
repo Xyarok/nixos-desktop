@@ -34,6 +34,9 @@ in {
     # art/photo
     gimp
 
+    # bar
+    waybar
+
     # development
     python3Full
     vscodium
